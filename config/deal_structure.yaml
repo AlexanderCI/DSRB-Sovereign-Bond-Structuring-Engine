@@ -1,0 +1,102 @@
+deal:
+  name: "DSRB Sovereign Defence and Resilience Bond 2026-1"
+  short_name: "SDRB 2026-1"
+  currency: "USD"
+  issuance_amount: 5000000000
+  target_collateral_balance: 5350000000
+  closing_date: "2026-09-30"
+  horizon_months: 120
+  payment_frequency: "monthly"
+  simulation_paths: 10000
+  discount_rate: 0.0425
+  random_seed: 417
+
+asset_pool:
+  n_assets: 68
+  min_asset_principal: 25000000
+  max_asset_principal: 175000000
+  min_coupon: 0.0375
+  max_coupon: 0.0725
+  min_maturity_months: 36
+  max_maturity_months: 120
+  countries:
+    - Canada
+    - United States
+    - United Kingdom
+    - Poland
+    - Finland
+    - Netherlands
+    - Germany
+    - Australia
+    - Norway
+    - Sweden
+    - Japan
+    - South Korea
+  sectors:
+    - defence logistics facility
+    - dual-use port infrastructure
+    - cyber resilience grid
+    - secure cloud / data centre
+    - allied supply-chain manufacturing
+    - satellite ground-station network
+  base_pd_annual_range: [0.0015, 0.0200]
+  lgd_range: [0.18, 0.46]
+  inflation_beta_range: [0.35, 1.10]
+  regional_vol_beta_range: [0.50, 1.45]
+  amortising_share: 0.72
+
+macro:
+  inflation_gap_mean: 0.0000
+  inflation_gap_vol: 0.0065
+  regional_vol_mean: 0.0000
+  regional_vol_vol: 0.0100
+  factor_autocorrelation: 0.62
+  gaussian_copula_rho: 0.34
+  severe_inflation_shift: 0.0250
+  severe_regional_vol_shift: 0.0400
+
+tranches:
+  senior:
+    name: "Class A Senior Secured Notes"
+    initial_thickness: 0.795
+    coupon_rate: 0.0450
+    institutional_yield_hurdle: 0.0410
+    min_subordination: 0.185
+  mezzanine:
+    name: "Class B Mezzanine Notes"
+    initial_thickness: 0.145
+    coupon_rate: 0.0735
+    institutional_yield_hurdle: 0.0680
+  equity:
+    name: "Class C First-Loss / Excess Spread Notes"
+    initial_thickness: 0.060
+    target_irr: 0.1450
+
+waterfall:
+  senior_servicing_fee_rate: 0.0012
+  trustee_fee_rate: 0.0003
+  reserve_account_target_pct: 0.0125
+  min_senior_oc_ratio: 1.215
+  min_total_oc_ratio: 1.060
+  min_senior_subordination: 0.185
+  pdl_cure_before_equity_distribution: true
+  excess_spread_trap_trigger_oc_ratio: 1.075
+  trapped_cash_release_oc_ratio: 1.110
+
+credit_enhancement:
+  dsrb_senior_guarantee_cap_pct_of_senior: 0.085
+  target_senior_expected_loss_bps: 1.5
+  capital_charge_bps: 18.0
+  admin_margin_bps: 5.0
+  overcollateralization_target_pct: 0.070
+  liquidity_facility_pct_of_notes: 0.020
+
+optimization:
+  senior_thickness_bounds: [0.68, 0.86]
+  mezzanine_thickness_bounds: [0.08, 0.22]
+  senior_coupon_bounds: [0.035, 0.058]
+  mezzanine_coupon_bounds: [0.055, 0.095]
+  min_equity_thickness: 0.040
+  max_equity_thickness: 0.110
+  max_wacc: 0.066
+  confidence_level: 0.99
