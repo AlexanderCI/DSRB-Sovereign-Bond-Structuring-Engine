@@ -1,27 +1,27 @@
 # DSRB Sovereign Defence and Resilience Bond Structuring Engine
 
-This repo builds a synthetic front-office structuring engine for a **USD 5.0bn Sovereign Defence and Resilience Bond**, or **SDRB 2026-1**. The deal is written as if a multilateral bank like the Defence, Security and Resilience Bank was arranging capital for allied sovereign defence, cyber, logistics, and dual-use infrastructure assets.
+Hi everyone! In this repo, I built a synthetic front-office structuring "engine" for a **USD 5.0bn Sovereign Defence and Resilience Bond**, or **SDRB 2026-1**. The deal is written assuming a multilateral bank like the DSRB was arranging capital for allied sovereign defence, cyber, logistics, or dual-use infrastructure assets.
 
-This is not an official DSRB model. It is a synthetic deal model for testing tranche sizing, guarantee pricing, waterfall behaviour, and issuer WACC under stress.
+Obviously, this is not an official DSRB model, and is a purely synthetic deal model for testing tranche sizing, as well as guarantee pricing, waterfall behaviour, and issuer WACC under stress.
 
-## Executive summary
+## Main summary
 
 **Transaction:** SDRB 2026-1  
 **Issuer concept:** multilateral-backed sovereign defence and resilience funding vehicle  
 **Issue size:** USD 5.0bn  
 **Collateral target:** USD 5.35bn synthetic sovereign-backed loans  
-**Collateral type:** defence logistics sites, dual-use infrastructure, cyber-resilience grids, secure data centres, allied supply-chain facilities, and satellite ground-station assets  
+**Collateral type:** any defence logistics sites, dual-use infrastructure, cyber-resilience grids, secure data centres, allied supply-chain facilities, and satellite ground-station assets  
 **Capital stack:** senior notes, mezzanine notes, and first-loss equity / excess spread notes  
 **Credit enhancement:** overcollateralisation, excess spread trapping, reserve account, PDL mechanics, and a DSRB-style first-loss guarantee around the senior tranche  
 **Main output:** tranche cashflows, expected loss, IRR, duration, equity VaR, guarantee fee, OC ratios, and trigger breach diagnostics
 
-The basic idea is simple: pool sovereign-backed assets, simulate defaults under macro stress, push the cash through a strict securitisation waterfall, then optimise tranche thickness and coupons so the issuer funds itself cheaply without destroying the senior credit story.
+The basic idea is quite simple: pool sovereign-backed assets, then simulate defaults under macro stress, push the cash through a strict securitization waterfall, then optimize tranche thickness and coupons so the issuer funds itself cheaply without destroying the senior credit story.
 
 ## What the model is trying to do
 
-DSRB is meant to sit between sovereign security needs and private capital markets. That makes the finance problem kind of unusual. It is not just Treasury, and it is not just front-office DCM either. The actual job is to translate government-backed defence/resilience assets into something investors can buy, price, risk-manage, and syndicate.
+DSRB is meant to sit between sovereign security needs and private capital markets. That makes the finance problem kind of unusual as it is not just treasury, and it is not just front-office DCM either. The actual job is to translate government-backed defence/resilience assets into something investors can EASILY buy and price and risk-manage, and syndicate.
 
-So this repo is built around that exact bridge:
+So this repo is built around that exact idea/"bridge":
 
 - **Treasury view:** funding cost, liquidity facility, OC account, WACC, note liability profile.
 - **Risk view:** PD/LGD, macro shocks, correlated sovereign defaults, PDLs, tail loss.
@@ -99,7 +99,7 @@ Z_{i,t}=\sqrt{\rho}S_t+\sqrt{1-\rho}\epsilon_{i,t}
 
 The waterfall allocates losses bottom-up and cashflows top-down. Equity absorbs first loss, then mezzanine, then senior. Cash gets paid through fees, senior interest, mezzanine interest, senior principal, mezzanine principal, and only then equity excess spread.
 
-## Repository layout
+## The repo layout
 
 ```text
 .
@@ -197,11 +197,6 @@ The notebook adds charts for:
 
 ## Notes on realism
 
-The asset tape is synthetic, but the mechanics are meant to be serious. The model uses real structured-finance ideas: excess spread, OC ratio, PDL, subordination, first-loss wrap, tranche WAL/duration, investor hurdles, and issuer WACC.
+The asset tape is synthetic, but the mechanics are meant to be serious. My model uses real structured-finance ideas like excess spread, OC ratio, PDL, subordination, first-loss wrap, tranche WAL/duration, investor hurdles, and, of course, issuer WACC.
 
-There are still judgement calls. For example, recoveries are assumed to arrive in the same month as default, which is conservative for timing analysis only in some structures and generous in others. A real bank model would also have legal maturity, delayed recovery curves, rating-agency stresses, country concentration caps, sanctions screens, defence procurement eligibility rules, and investor-by-investor syndication limits.
-
-
-## Public context used
-
-The public DSRB context is that Canada welcomed progress toward establishing the bank after Charter negotiations in Montréal, with the proposed mandate focused on long-term, low-cost financing for defence, security, and resilience initiatives. Public statements also describe DSRB as a proposed multilateral institution owned by nation-states and aimed at mobilising capital for allied defence and resilience needs.
+There are still judgement calls worth considering. For example, recoveries are assumed to arrive in the same month as default, which is conservative for timing analysis only in some structures and generous in others. A REAL bank model would also have legal maturity, or perhaps delayed recovery curves, or rating-agency stresses, and country concentration caps, sanctions screens, defence procurement eligibility rules, and investor-by-investor syndication limits.
