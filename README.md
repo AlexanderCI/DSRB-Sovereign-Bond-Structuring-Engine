@@ -197,6 +197,6 @@ The notebook adds charts for:
 
 ## The "realism" of my work
 
-The asset tape is synthetic, but the mechanics are meant to be serious. My model uses real structured-finance ideas like excess spread, OC ratio, PDL, subordination, first-loss wrap, tranche WAL/duration, investor hurdles, and, of course, issuer WACC.
+It goes without saying that the asset tape is synthetic, but the actual mechanics are meant to be taken serious. My model uses real structured-finance ideas like excess spread, OC ratio, PDL, subordination, first-loss wrap, tranche WAL/duration, investor hurdles, and, of course, issuer WACC.
 
 There are still judgement calls worth considering. For example, recoveries are assumed to arrive in the same month as default, which is conservative for timing analysis only in some structures and generous in others. A REAL bank model would also have legal maturity, or perhaps delayed recovery curves, or rating-agency stresses, and country concentration caps, sanctions screens, defence procurement eligibility rules, and investor-by-investor syndication limits.
