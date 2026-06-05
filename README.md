@@ -195,7 +195,7 @@ The notebook adds charts for:
 - senior / mezz / equity loss distribution
 - equity tranche VaR
 
-## Worth noting the "realism" of my work
+## The "realism" of my work
 
 The asset tape is synthetic, but the mechanics are meant to be serious. My model uses real structured-finance ideas like excess spread, OC ratio, PDL, subordination, first-loss wrap, tranche WAL/duration, investor hurdles, and, of course, issuer WACC.
 
