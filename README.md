@@ -28,7 +28,7 @@ So this repo is built around that exact bridge:
 - **Front-office structuring view:** tranche attachment, subordination, excess spread, senior guarantee fee, investor hurdle yields.
 - **Actuarial/statistical view:** stochastic cashflow simulation, default intensity, Monte Carlo expected loss, VaR, duration.
 
-## Architecture flowchart
+## Flowchart of my work
 
 ```text
 config/deal_structure.yaml
